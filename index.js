@@ -11,7 +11,8 @@ const FIRST_WORD = document.querySelector(".first-word").children,
     thirdWordArray = Array.from(THIRD_WORD),
     fourthWordArray = Array.from(FOURTH_WORD),
     fifthWordArray = Array.from(FIFTH_WORD),
-    sixthWordArray = Array.from(SIXTH_WORD)
+    sixthWordArray = Array.from(SIXTH_WORD),
+    $MODAL = document.querySelector(".modal-content")
 
 let word1 = "",
     word2 = "",
@@ -34,11 +35,17 @@ const message = (array) => {
 
 const showMessage = () => {
     if (lives <= 0 && !win){
-        // alert(`Perdiste, la palabra era ${wordInGame}`)
         console.log(`Perdiste, la palabra era ${wordInGame}`);
+        $MODAL.style.display = "block"
+        console.log($MODAL.children[0].textContent = "Perdiste! La palabra era:");
+        console.log($MODAL.children[1].textContent = wordInGame);
+        console.log($MODAL.children[2].textContent = `End`);
     }else if (win){
-        // alert("Adivinaste la palabra!")
         console.log("Adivinaste la palabra!");
+        $MODAL.style.display = "block"
+        console.log($MODAL.children[0].textContent = "Adivinaste la palabra! :)");
+        console.log($MODAL.children[1].textContent = wordInGame);
+        console.log($MODAL.children[2].textContent = `End`);
     }
 }
    

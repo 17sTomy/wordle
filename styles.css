@@ -103,7 +103,7 @@ button:hover{
 }
 
 .modal-content{
-    /* display: none; */
+    display: none;
     margin: 0 auto;
     width: 300px;
     height: 250px;
