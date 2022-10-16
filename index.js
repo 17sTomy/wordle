@@ -13,7 +13,8 @@ const FIRST_WORD = document.querySelector(".first-word").children,
     fifthWordArray = Array.from(FIFTH_WORD),
     sixthWordArray = Array.from(SIXTH_WORD),
     $MODAL = document.querySelector(".modal-content"),
-    $TIMER = document.querySelector(".timer")
+    $TIMER = document.querySelector(".timer"),
+    $BTN_REPLAY = document.querySelector("#replay")
 
 let word1 = "",
     word2 = "",
@@ -27,7 +28,8 @@ let word1 = "",
     win = false,
     seconds = 0,
     minutes = 0,
-    hours = 0
+    hours = 0,
+    keep = true
 
 
 const message = (array) => {
@@ -39,17 +41,17 @@ const message = (array) => {
 
 const showMessage = () => {
     if (lives <= 0 && !win){
-        console.log(`Perdiste, la palabra era ${wordInGame}`);
+        keep = false
         $MODAL.style.display = "block"
-        console.log($MODAL.children[0].textContent = "Perdiste! La palabra era:");
-        console.log($MODAL.children[1].textContent = wordInGame);
-        console.log($MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
+        $MODAL.children[0].textContent = "Perdiste! La palabra era:"
+        $MODAL.children[1].textContent = wordInGame
+        $MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
     }else if (win){
-        console.log("Adivinaste la palabra!");
+        keep = false
         $MODAL.style.display = "block"
-        console.log($MODAL.children[0].textContent = "Adivinaste la palabra! :)");
-        console.log($MODAL.children[1].textContent = wordInGame);
-        console.log($MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
+        $MODAL.children[0].textContent = "Adivinaste la palabra! :)"
+        $MODAL.children[1].textContent = wordInGame
+        $MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
     }
 }
    
@@ -335,3 +337,7 @@ fifthWordArray.forEach(input => input.addEventListener("keyup", (event) => {
 sixthWordArray.forEach(input => input.addEventListener("keyup", (event) => {
     movements(event, sixthWordArray)
 }))
+
+$BTN_REPLAY.addEventListener("click", () => {
+    location.reload()
+})
