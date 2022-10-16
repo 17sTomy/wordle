@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>WORDLE</h1>
+    <div class="modal-window">
+        <div class="modal-content">
+            <h2>Adivinaste la palabra!</h2>
+            <h3>FACIL</h3>
+            <p>En 16:05 minutos</p>
+            <button>Volver a Jugar</button>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="first-word word">
+            <input type="text" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+        <div class="second-word word">
+            <input type="text" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+        <div class="third-word word">
+            <input type="text" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+        <div class="fourth-word word">
+            <input type="text" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+        <div class="fifth-word word">
+            <input type="text" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+        <div class="sixth-word word">
+            <input type="text" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input2" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input3" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+            <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
+        </div>
+
+        <button id="btn-send">Enviar</button>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
