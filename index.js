@@ -31,6 +31,26 @@ let word1 = "",
     hours = 0
 
 
+const myInterval = setInterval(myTimer, 1000);
+
+function myTimer() {
+    seconds++
+    if (seconds >= 59){
+        seconds = 0
+        minutes++
+    }
+    if (minutes >= 59) {
+        minutes = 0
+        hours++
+    }
+        
+    let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
+    const $h4 = document.createElement("h4")
+    $TIMER.innerHTML = ""
+    $h4.textContent = time
+    $TIMER.appendChild($h4)
+}
+
 const message = (array) => {
     checkWin(array)
     setTimeout(() => {
@@ -40,11 +60,13 @@ const message = (array) => {
 
 const showMessage = () => {
     if (lives <= 0 && !win){
+        clearInterval(myInterval)
         $MODAL.style.display = "block"
         $MODAL.children[0].textContent = "Perdiste! La palabra era:"
         $MODAL.children[1].textContent = wordInGame
         $MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
     }else if (win){
+        clearInterval(myInterval)
         $MODAL.style.display = "block"
         $MODAL.children[0].textContent = "Adivinaste la palabra! :)"
         $MODAL.children[1].textContent = wordInGame
@@ -105,9 +127,7 @@ const armarPalabra = (wordArray, word) => {
 }
 
 const chequearSiExiste = word => {
-    if(ALL_WORDS.indexOf(word) === -1){
-        exists = false
-    }
+    exists = (ALL_WORDS.indexOf(word) === -1) ? false : true
 }
 
 const correctCharacter = (word, input) => {
@@ -173,17 +193,21 @@ const play = () => {
             word1 = ""
             return
         }
-        console.log(word1);
-        correctCharacter(word1, FIRST_WORD)
-        existingCharacter(word1, FIRST_WORD)
-        nonexistingCharacter(word1, FIRST_WORD)
-        disableInputs(FIRST_WORD)
-        message(FIRST_WORD)
-        lives -= 1
-        enableInputs(SECOND_WORD)
-        if (!win){
-            secondWordArray[0].disabled = false
-            secondWordArray[0].focus()
+        chequearSiExiste(word1)
+        console.log(exists);
+        if (exists){
+            console.log(word1);
+            correctCharacter(word1, FIRST_WORD)
+            existingCharacter(word1, FIRST_WORD)
+            nonexistingCharacter(word1, FIRST_WORD)
+            disableInputs(FIRST_WORD)
+            message(FIRST_WORD)
+            lives -= 1
+            enableInputs(SECOND_WORD)
+            if (!win){
+                secondWordArray[0].disabled = false
+                secondWordArray[0].focus()
+            }
         }
     }else if(lives === 5){
         word2 = armarPalabra(SECOND_WORD, word2)
@@ -272,27 +296,11 @@ const play = () => {
         lives -= 1 
     } 
 }
+
     
 document.addEventListener("DOMContentLoaded", () => {
     chooseWord()
     firstWordArray[0].focus()
-    setInterval(() => {
-        seconds++
-        if (seconds >= 59){
-            seconds = 0
-            minutes++
-        }
-        if (minutes >= 59) {
-            minutes = 0
-            hours++
-        }
-        
-        let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
-        const $h4 = document.createElement("h4")
-        $TIMER.innerHTML = ""
-        $h4.textContent = time
-        $TIMER.appendChild($h4)
-    }, 1000);
 })
 
 $BTN.addEventListener("click", play)
