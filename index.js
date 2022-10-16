@@ -28,8 +28,7 @@ let word1 = "",
     win = false,
     seconds = 0,
     minutes = 0,
-    hours = 0,
-    keep = true
+    hours = 0
 
 
 const message = (array) => {
@@ -41,13 +40,11 @@ const message = (array) => {
 
 const showMessage = () => {
     if (lives <= 0 && !win){
-        keep = false
         $MODAL.style.display = "block"
         $MODAL.children[0].textContent = "Perdiste! La palabra era:"
         $MODAL.children[1].textContent = wordInGame
         $MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
     }else if (win){
-        keep = false
         $MODAL.style.display = "block"
         $MODAL.children[0].textContent = "Adivinaste la palabra! :)"
         $MODAL.children[1].textContent = wordInGame
