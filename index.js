@@ -12,7 +12,8 @@ const FIRST_WORD = document.querySelector(".first-word").children,
     fourthWordArray = Array.from(FOURTH_WORD),
     fifthWordArray = Array.from(FIFTH_WORD),
     sixthWordArray = Array.from(SIXTH_WORD),
-    $MODAL = document.querySelector(".modal-content")
+    $MODAL = document.querySelector(".modal-content"),
+    $TIMER = document.querySelector(".timer")
 
 let word1 = "",
     word2 = "",
@@ -23,7 +24,10 @@ let word1 = "",
     wordInGame,
     exists = true,
     lives = 6,
-    win = false
+    win = false,
+    seconds = 0,
+    minutes = 0,
+    hours = 0
 
 
 const message = (array) => {
@@ -39,13 +43,13 @@ const showMessage = () => {
         $MODAL.style.display = "block"
         console.log($MODAL.children[0].textContent = "Perdiste! La palabra era:");
         console.log($MODAL.children[1].textContent = wordInGame);
-        console.log($MODAL.children[2].textContent = `End`);
+        console.log($MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
     }else if (win){
         console.log("Adivinaste la palabra!");
         $MODAL.style.display = "block"
         console.log($MODAL.children[0].textContent = "Adivinaste la palabra! :)");
         console.log($MODAL.children[1].textContent = wordInGame);
-        console.log($MODAL.children[2].textContent = `End`);
+        console.log($MODAL.children[2].textContent = `Tiempo jugado: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
     }
 }
    
@@ -273,6 +277,23 @@ const play = () => {
 document.addEventListener("DOMContentLoaded", () => {
     chooseWord()
     firstWordArray[0].focus()
+    setInterval(() => {
+        seconds++
+        if (seconds >= 59){
+            seconds = 0
+            minutes++
+        }
+        if (minutes >= 59) {
+            minutes = 0
+            hours++
+        }
+        
+        let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
+        const $h4 = document.createElement("h4")
+        $TIMER.innerHTML = ""
+        $h4.textContent = time
+        $TIMER.appendChild($h4)
+    }, 1000);
 })
 
 $BTN.addEventListener("click", play)
@@ -314,6 +335,3 @@ fifthWordArray.forEach(input => input.addEventListener("keyup", (event) => {
 sixthWordArray.forEach(input => input.addEventListener("keyup", (event) => {
     movements(event, sixthWordArray)
 }))
-
-
-

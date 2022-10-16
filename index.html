@@ -10,15 +10,16 @@
 <body>
 
     <h1>WORDLE</h1>
-    <div class="modal-window">
-        <div class="modal-content">
-            <h2>Adivinaste la palabra!</h2>
-            <h3>FACIL</h3>
-            <p>En 16:05 minutos</p>
-            <button>Volver a Jugar</button>
-        </div>
+    <div class="modal-content">
+        <h2>Adivinaste la palabra!</h2>
+        <h3>FACIL</h3>
+        <p>En 16:05 minutos</p>
+        <button>Volver a Jugar</button>
     </div>
     <div class="game-container">
+        <div class="timer">
+            <h4>00:00:00</h4>
+        </div>
         <div class="first-word word">
             <input type="text" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
             <input type="text" class="input2" maxlength="1" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
@@ -61,7 +62,7 @@
             <input type="text" class="input4" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
             <input type="text" class="input5" maxlength="1" disabled onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"/>
         </div>
-
+        
         <button id="btn-send">Enviar</button>
     </div>
     
