@@ -28,6 +28,11 @@ body{
 
 h1{
     text-align: center;
+    font-size: 40px;
+}
+
+h4{
+    font-size: 20px;
 }
 
 .game-container{
@@ -47,9 +52,9 @@ h1{
 input{
     text-align: center;
     font-size: 3.5rem;
-    width: 55px;
-    height: 55px;
-    border-radius: 10px;
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
     border: none;
     background-color: rgb(190, 190, 190);
     outline: none;
@@ -62,7 +67,7 @@ button{
     font-family: Roboto, "sans-serif";
     font-size: 15px;
     padding: 15px;
-    width: 325px;
+    width: 380px;
     border-radius: 30px;
     border: none;
     color: #fff;
@@ -148,8 +153,8 @@ button:hover{
 
 @media screen and (max-width: 500px){
     input{
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         font-size: 1.8rem;
     }
     button{

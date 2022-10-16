@@ -414,19 +414,4 @@ $BTN_REPLAY.addEventListener("click", () => {
     location.reload()
 })
 
-// function traerPalabras(){
-//     let all_words = []
-//     fetch("palabras5Letras.json")
-//         .then((response) => response.json())
-//         .then((data) => {
-//             data.forEach(word => {
-//                 // console.log(word);
-//                 all_words.push(word)
-//             })
-//             return all_words
-//         })
-// }
-
-// const palabrass = traerPalabras()
-// console.log(palabrass);
 
