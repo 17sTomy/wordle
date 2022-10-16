@@ -126,3 +126,22 @@ button:hover{
 .modal-content button:hover{
     width: 250px;
 }
+
+.error{
+    animation-name: wordNoExist;
+    animation-duration: 1s;
+}
+
+@keyframes wordNoExist{
+    0%{-webkit-transform:translate(0px,0px);}
+	10%{-webkit-transform:translate(10px,0px);}
+	20%{-webkit-transform:translate(0px,0px);}
+	30%{-webkit-transform:translate(10px,0px);}
+	40%{-webkit-transform:translate(0px,0px);}
+	50%{-webkit-transform:translate(10px,0px);}
+	60%{-webkit-transform:translate(0px,0px);}
+	70%{-webkit-transform:translate(10px,0px);}
+	80%{-webkit-transform:translate(0px,0px);}
+	90%{-webkit-transform:translate(10px,0px);}
+	100%{-webkit-transform:translate(0px,0px);}
+}

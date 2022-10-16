@@ -126,8 +126,18 @@ const armarPalabra = (wordArray, word) => {
     return word.toUpperCase()
 }
 
-const chequearSiExiste = word => {
+const chequearSiExiste = (word, inputs) => {
     exists = (ALL_WORDS.indexOf(word) === -1) ? false : true
+    if(!exists){
+        inputs.forEach(input => {
+            input.classList.add("error")
+        })
+        setTimeout(() => {
+            inputs.forEach(input => {
+                input.classList.remove("error")
+            })
+        }, 1300);
+    }
 }
 
 const correctCharacter = (word, input) => {
@@ -193,10 +203,8 @@ const play = () => {
             word1 = ""
             return
         }
-        chequearSiExiste(word1)
-        console.log(exists);
+        chequearSiExiste(word1, firstWordArray)
         if (exists){
-            console.log(word1);
             correctCharacter(word1, FIRST_WORD)
             existingCharacter(word1, FIRST_WORD)
             nonexistingCharacter(word1, FIRST_WORD)
@@ -215,17 +223,19 @@ const play = () => {
             word2 = ""
             return
         }
-        console.log(word2);
-        correctCharacter(word2, SECOND_WORD)
-        existingCharacter(word2, SECOND_WORD)
-        nonexistingCharacter(word2, SECOND_WORD)
-        disableInputs(SECOND_WORD)
-        message(SECOND_WORD)
-        lives -= 1
-        enableInputs(THIRD_WORD)
-        if (!win){
-            thirdWordArray[0].disabled = false
-            thirdWordArray[0].focus()
+        chequearSiExiste(word2, secondWordArray)
+        if (exists){
+            correctCharacter(word2, SECOND_WORD)
+            existingCharacter(word2, SECOND_WORD)
+            nonexistingCharacter(word2, SECOND_WORD)
+            disableInputs(SECOND_WORD)
+            message(SECOND_WORD)
+            lives -= 1
+            enableInputs(THIRD_WORD)
+            if (!win){
+                thirdWordArray[0].disabled = false
+                thirdWordArray[0].focus()
+            }
         }
     }else if (lives === 4){
         word3 = armarPalabra(THIRD_WORD, word3)
@@ -233,67 +243,75 @@ const play = () => {
             word3 = ""
             return
         }
-        console.log(word3);
-        correctCharacter(word3, THIRD_WORD)
-        existingCharacter(word3, THIRD_WORD)
-        nonexistingCharacter(word3, THIRD_WORD)
-        disableInputs(THIRD_WORD)
-        message(THIRD_WORD)
-        lives -= 1
-        enableInputs(FOURTH_WORD)
-        if (!win){
-            fourthWordArray[0].disabled = false
-            fourthWordArray[0].focus()
-        }      
+        chequearSiExiste(word3, thirdWordArray)
+        if (exists){
+            correctCharacter(word3, THIRD_WORD)
+            existingCharacter(word3, THIRD_WORD)
+            nonexistingCharacter(word3, THIRD_WORD)
+            disableInputs(THIRD_WORD)
+            message(THIRD_WORD)
+            lives -= 1
+            enableInputs(FOURTH_WORD)
+            if (!win){
+                fourthWordArray[0].disabled = false
+                fourthWordArray[0].focus()
+            }      
+        }
     }else if (lives === 3){
         word4 = armarPalabra(FOURTH_WORD, word4)
         if (word4 === undefined){
             word4 = ""
             return
         }
-        console.log(word4);
-        correctCharacter(word4, FOURTH_WORD)
-        existingCharacter(word4, FOURTH_WORD)
-        nonexistingCharacter(word4, FOURTH_WORD)
-        disableInputs(FOURTH_WORD)
-        message(FOURTH_WORD)
-        lives -= 1
-        enableInputs(FIFTH_WORD)
-        if (!win){
-            fifthWordArray[0].disabled = false
-            fifthWordArray[0].focus()
-        } 
+        chequearSiExiste(word4, fourthWordArray)
+        if (exists){
+            correctCharacter(word4, FOURTH_WORD)
+            existingCharacter(word4, FOURTH_WORD)
+            nonexistingCharacter(word4, FOURTH_WORD)
+            disableInputs(FOURTH_WORD)
+            message(FOURTH_WORD)
+            lives -= 1
+            enableInputs(FIFTH_WORD)
+            if (!win){
+                fifthWordArray[0].disabled = false
+                fifthWordArray[0].focus()
+            } 
+        }
     }else if (lives === 2){
         word5 = armarPalabra(FIFTH_WORD, word5)
         if (word5 === undefined){
             word5 = ""
             return
         }
-        console.log(word5);
-        correctCharacter(word5, FIFTH_WORD)
-        existingCharacter(word5, FIFTH_WORD)
-        nonexistingCharacter(word5, FIFTH_WORD)
-        disableInputs(FIFTH_WORD)
-        message(FIFTH_WORD)
-        lives -= 1
-        enableInputs(SIXTH_WORD)
-        if (!win){
-            sixthWordArray[0].disabled = false
-            sixthWordArray[0].focus()
-        } 
+        chequearSiExiste(word5, fifthWordArray)
+        if (exists){
+            correctCharacter(word5, FIFTH_WORD)
+            existingCharacter(word5, FIFTH_WORD)
+            nonexistingCharacter(word5, FIFTH_WORD)
+            disableInputs(FIFTH_WORD)
+            message(FIFTH_WORD)
+            lives -= 1
+            enableInputs(SIXTH_WORD)
+            if (!win){
+                sixthWordArray[0].disabled = false
+                sixthWordArray[0].focus()
+            } 
+        }
     }else if (lives === 1){
         word6 = armarPalabra(SIXTH_WORD, word6)
         if (word6 === undefined){
             word6 = ""
             return
         }
-        console.log(word6);
-        correctCharacter(word6, SIXTH_WORD)
-        existingCharacter(word6, SIXTH_WORD)
-        nonexistingCharacter(word6, SIXTH_WORD)
-        disableInputs(SIXTH_WORD)
-        message(SIXTH_WORD)
-        lives -= 1 
+        chequearSiExiste(word6, sixthWordArray)
+        if (exists){
+            correctCharacter(word6, SIXTH_WORD)
+            existingCharacter(word6, SIXTH_WORD)
+            nonexistingCharacter(word6, SIXTH_WORD)
+            disableInputs(SIXTH_WORD)
+            message(SIXTH_WORD)
+            lives -= 1 
+        }
     } 
 }
 
