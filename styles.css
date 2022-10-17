@@ -164,6 +164,7 @@ button:hover{
     }
     input:disabled{
         opacity: 1;
+        color: #fff;
     }
     button{
         width: 280px;
