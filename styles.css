@@ -162,6 +162,9 @@ button:hover{
         height: 45px;
         font-size: 1.8rem;
     }
+    input:disabled{
+        opacity: 1;
+    }
     button{
         width: 280px;
     }
